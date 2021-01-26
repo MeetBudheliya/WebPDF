@@ -1,24 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebPDF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Alm-GO-J0a">
+                                <rect key="frame" x="10" y="54" width="394" height="718"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hv-7P-7KO">
+                                <rect key="frame" x="50" y="792" width="314" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="YNv-Io-u6H"/>
+                                </constraints>
+                                <state key="normal" title="Save As PDF">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SaveAsPDF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JXv-7f-P7M"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0hv-7P-7KO" firstAttribute="top" secondItem="Alm-GO-J0a" secondAttribute="bottom" constant="20" id="1lO-Z9-1ON"/>
+                            <constraint firstItem="Alm-GO-J0a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="GfB-dN-D4S"/>
+                            <constraint firstItem="0hv-7P-7KO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="LHm-0Q-YpP"/>
+                            <constraint firstItem="Alm-GO-J0a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="NwQ-DO-sck"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0hv-7P-7KO" secondAttribute="trailing" constant="50" id="PkX-t9-FjU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Alm-GO-J0a" secondAttribute="trailing" constant="10" id="Roc-BM-J9m"/>
+                            <constraint firstItem="0hv-7P-7KO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="nXm-aQ-NHE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="web" destination="Alm-GO-J0a" id="7Qd-RY-FmL"/>
+                        <segue destination="t51-px-lC5" kind="showDetail" identifier="showPDFSegue" id="dOj-n1-8SA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141" y="115"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="Nky-KL-Fcc">
+            <objects>
+                <viewController id="t51-px-lC5" customClass="ViewController2" customModule="WebPDF" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hcf-lO-d37">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kni-Ce-sOd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NVc-1U-Adu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NVc-1U-Adu" firstAttribute="trailing" secondItem="kni-Ce-sOd" secondAttribute="trailing" id="FCn-Ok-TNH"/>
+                            <constraint firstItem="kni-Ce-sOd" firstAttribute="leading" secondItem="NVc-1U-Adu" secondAttribute="leading" id="lLc-H7-jcV"/>
+                            <constraint firstItem="NVc-1U-Adu" firstAttribute="bottom" secondItem="kni-Ce-sOd" secondAttribute="bottom" id="nYP-6i-Ew4"/>
+                            <constraint firstItem="kni-Ce-sOd" firstAttribute="top" secondItem="NVc-1U-Adu" secondAttribute="top" id="tSH-Qb-dit"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="web" destination="kni-Ce-sOd" id="C4w-1l-Qae"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g16-Pk-U4Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="99"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
